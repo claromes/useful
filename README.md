@@ -1,15 +1,21 @@
 # useful
 
+Lists of useful GNU/Linux commands I use in my daily routine. The script uses `less` for pagination.
+
 ## Installation
 
-$ `curl https://raw.githubusercontent.com/claromes/useful/main/useful.sh --output useful.sh`
+```bash
+curl https://raw.githubusercontent.com/claromes/useful/main/useful.sh --output useful.sh
+```
 
-$ `sudo chmod +x ./useful.sh`
+```bash
+sudo chmod +x ./useful.sh
+```
 
 In the `.bashrc` file, add the following line:
 
 ```bash
-alias useful='./useful.sh'
+alias useful='/home/<user>/useful.sh'
 ```
 
 ## Usage

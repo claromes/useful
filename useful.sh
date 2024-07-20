@@ -8,7 +8,7 @@ RESET=$(tput sgr0)
 BOLD=$(tput bold)
 
 ###### INFO ######
-VERSION="v0.1.0"
+VERSION="0.1.0"
 HELP="
     Usage:
         ${BOLD}useful [name | info]${RESET}
