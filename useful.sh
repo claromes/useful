@@ -4,6 +4,7 @@
 # Licensed under the GNU General Public License v3.0
 
 GREEN=$(tput setaf 2)
+CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
 BOLD=$(tput bold)
 
@@ -135,6 +136,20 @@ VENV_CMD="
         ${GREEN}# install requirements${RESET}
         pip install -r requirements.txt
 "
+DENO_CMD="
+    Name:
+        ${BOLD}Deno${RESET}
+
+    Commands:
+        deno install <OPTIONS> <package-name>
+            OPTIONS:
+                --allow-net  ${GREEN}# grants permissions for network access${RESET}
+                --allow-read  ${GREEN}# grants permissions for file reading${RESET}
+                --allow-write  ${GREEN}# grants permissions for file writing${RESET}
+                -n  ${GREEN}# names the executable${RESET}
+            EXAMPLE:
+                ${CYAN}deno install --allow-net --allow-read --allow-write -n <exec-name> <package-name>${RESET}
+"
 
 ###### ECHO ######
 
@@ -169,6 +184,10 @@ case "$1" in
     ;;
     venv)
         echo "$VENV_CMD" | less -R
+        exit 0
+    ;;
+    deno)
+        echo "$DENO_CMD" | less -R
         exit 0
     ;;
 esac

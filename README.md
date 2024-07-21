@@ -30,3 +30,4 @@ $ `useful poetry`
 
 $ `useful venv`
 
+$ `useful deno`
