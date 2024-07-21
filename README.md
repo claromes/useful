@@ -26,4 +26,7 @@ $ `useful docker`
 
 $ `useful git`
 
-$ `useful python`
+$ `useful poetry`
+
+$ `useful venv`
+

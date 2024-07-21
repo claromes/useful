@@ -95,26 +95,33 @@ GIT_CMD="
 
         git push origin --delete branch_name ${GREEN}# delete branch remotely${RESET}
 
-        git remote set-url origin git@github.com:user/repo.git ${GREEN}# remote set-url origin${RESET}
+        git remote set-url origin git@github.com:<user>/<repo>.git ${GREEN}# remote set-url origin${RESET}
 
-        git remote add origin git@github.com:user/repo.git ${GREEN}# remote add origin${RESET}
+        git remote add origin git@github.com:<user>/<repo>.git ${GREEN}# remote add origin${RESET}
 
         git push -u origin main ${GREEN}# first push${RESET}
 
         git stash pop ${GREEN}# undo last git stash${RESET}
 "
-PYTHON_CMD="
+POETRY_CMD="
     Name:
-        ${BOLD}Python${RESET}
+        ${BOLD}Poetry${RESET}
 
-    Poetry:
-        poetry shell
-        poetry init
-        poetry install <package-name>
-        poetry run <package-name>
-        poetry add <package-name> --group <group-name>
+    Commands:
+        poetry shell ${GREEN}# spawns a shell and if a virtualenv does not exist, it will be created${RESET}
+        poetry new ${GREEN}# creates a directory structure${RESET}
+        poetry install <package-name> ${GREEN}# installs the package${RESET}
+        poetry run <package-name> ${GREEN}# executes the package inside the project's virtualenv${RESET}
+        poetry add <package-name> --group <group-name> ${GREEN}# adds packages to your pyproject.toml and installs them${RESET}
+        poetry remove <package-name> --group <group-name> ${GREEN}# removes packages to your pyproject.toml and uninstalls them${RESET}
+        poetry build ${GREEN}# builds the source and wheels archives${RESET}
+        poetry publish -u __token__ -p <pypi-token> ${GREEN}# publishes the package, previously built with the build command${RESET}
+"
+VENV_CMD="
+    Name:
+        ${BOLD}venv${RESET}
 
-    venv Module:
+    Commands:
         ${GREEN}# win${RESET}
         python -m venv .venv
         .venv\Scripts\activate
@@ -156,8 +163,12 @@ case "$1" in
         echo "$GIT_CMD" | less -R
         exit 0
     ;;
-    python)
-        echo "$PYTHON_CMD" | less -R
+    poetry)
+        echo "$POETRY_CMD" | less -R
+        exit 0
+    ;;
+    venv)
+        echo "$VENV_CMD" | less -R
         exit 0
     ;;
 esac
