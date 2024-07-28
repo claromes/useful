@@ -5,29 +5,42 @@ Lists of useful GNU/Linux commands I use in my daily routine. The script uses `l
 ## Installation
 
 ```bash
-curl https://raw.githubusercontent.com/claromes/useful/main/useful.sh --output useful.sh
+git clone git@github.com:claromes/useful.git
 ```
 
 ```bash
-sudo chmod +x ./useful.sh
+sudo cd useful && chmod +x ./useful.sh
 ```
 
 In the `.bashrc` file, add the following line:
 
 ```bash
-alias useful='/home/<user>/useful.sh'
+alias useful='/home/<user>/useful/useful.sh'
 ```
 
 ## Usage
 
-$ `useful utils`
+Available lists:
+```bash
+useful help
+```
 
-$ `useful docker`
+Show list:
+```bash
+useful <LIST NAME>
+```
+## Add your own commands and lists
 
-$ `useful git`
+Fork the project and modify the `useful.sh` script.
 
-$ `useful poetry`
+In the `###### COMMANDS ######` section, insert your commands, creating a new variable.
 
-$ `useful venv`
+In the `###### ECHO ######` section, add another option to the case statement with the list name (`arg_name`) that will be passed as an argument, and the variable with the commands (`$NAME_CMD`).
+```bash
+arg_name)
+    echo "$NAME_CMD" | less -R
+    exit 0
+;;
+```
 
-$ `useful deno`
+Don't forget to insert this new `arg_name` into the `HELP` variable, in the `###### HELP ######` section of the code.

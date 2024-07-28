@@ -8,24 +8,25 @@ CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
 BOLD=$(tput bold)
 
-###### INFO ######
-VERSION="0.1.0"
+###### HELP ######
 HELP="
-    Usage:
-        ${BOLD}useful [name | info]${RESET}
+    useful utils ${GREEN}(Bash)${RESET}
 
-        name:
-            Technology name
+    useful docker
 
-        info:
-            -h --help       Echo usage commands
-            -v --version    Echo useful version
+    useful git
+
+    useful poetry
+
+    useful venv ${GREEN}(Python)${RESET}
+
+    useful deno
 "
 ERROR="
     Unknown option: $1
 
-    Usage: ${BOLD}useful [name]${RESET}
-    Help: ${BOLD}useful --help
+    Usage: ${BOLD}useful <LIST NAME>${RESET}
+    Help: ${BOLD}useful help
 "
 
 ###### COMMANDS ######
@@ -154,11 +155,7 @@ DENO_CMD="
 ###### ECHO ######
 
 case "$1" in
-    -v | --version)
-        echo "$VERSION"
-        exit 0
-    ;;
-    -h | --help)
+    help)
         echo "$HELP"
         exit 0
     ;;
