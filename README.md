@@ -9,7 +9,7 @@ git clone git@github.com:claromes/useful.git
 ```
 
 ```bash
-sudo cd useful && chmod +x ./useful.sh
+cd useful && sudo chmod +x ./useful.sh
 ```
 
 In the `.bashrc` file, add the following line:
